@@ -1,5 +1,3 @@
-import { words } from "prelude-ls"
-
 export const countUppercaseLetters = (text) => {
     let count = 0
     for (const char of text) {
@@ -63,3 +61,42 @@ export const normalizeSpaces = (text) => {
 
 export const extractFileName = (path) => path.split('/').at(-1).split('.')[0]
 
+export const encryptSentence = (text) => {
+    let result = ''
+    for (let i = 1; i < text.length; i += 2) {
+        result += text[i]
+    }
+    if (text.length % 2 === 0) {
+        for (let i = 2; i <= text.length; i += 2) {
+            result += text.at(-i)
+        }
+    }
+    else {
+        for (let i = 1; i <= text.length; i += 2) {
+            result += text.at(-i)
+        }
+    }
+    return result
+}
+
+export const checkBrackets = (str) => {
+    const openingSymbols = ['(', '[', '{', '<']
+    const closingSymbols = [')', ']', '}', '>']
+    const stack = []
+    for (const symbol of str) {
+        if (openingSymbols.includes(symbol)) {
+        stack.push(symbol)
+        console.log(stack)
+        }
+        else if (closingSymbols.includes(symbol)) {
+        const pop = stack.pop()
+            if (!pop) {
+                return str.indexOf(symbol)
+            }
+        else if (openingSymbols.indexOf(pop) !== closingSymbols.indexOf(symbol)) {
+            return 
+        }
+    }
+  }
+    return stack.length === 0 ? 0 : -1
+}
