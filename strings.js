@@ -85,18 +85,17 @@ export const checkBrackets = (str) => {
     const stack = []
     for (const symbol of str) {
         if (openingSymbols.includes(symbol)) {
-        stack.push(symbol)
-        console.log(stack)
+          stack.push(symbol)
         }
         else if (closingSymbols.includes(symbol)) {
-        const pop = stack.pop()
-            if (!pop) {
-                return str.indexOf(symbol)
-            }
-        else if (openingSymbols.indexOf(pop) !== closingSymbols.indexOf(symbol)) {
-            return 
+          const pop = stack.pop()
+          if (!pop) {
+            return str.indexOf(symbol)
+          }
+          else if (openingSymbols.indexOf(pop) !== closingSymbols.indexOf(symbol)) {
+            return str.indexOf(symbol)
+          }
         }
     }
-  }
     return stack.length === 0 ? 0 : -1
 }
