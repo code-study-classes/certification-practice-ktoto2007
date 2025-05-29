@@ -22,19 +22,10 @@ export const containsSubstring = (str, substr) => str.includes(substr)
 
 export const replaceSubstring = (str, substr, replacement) => str.replace(substr, replacement)
 
-export const countWordsWithSameLetters = (text) => {
-    if (text === '') {
-        return 0
-    }
-    const words = text.toLowerCase().split(' ')
-    let count = 0
-    for (const word of words) {
-        if (word[0] === word.at(-1)) {
-            count += 1
-        }
-    }
-    return count
-}
+export const countWordsWithSameLetters = (text) => text.length > 1 ? text
+    .toLowerCase()
+    .split(' ')
+    .filter((word) => word[0] === word.at(-1)).length : 0
 
 export const countWordsWithA = (text) => {
     let count = 0
