@@ -5,6 +5,7 @@ import {
   findUniqueNumber,
   calculateF,
   describeNumber,
+  getDayName,
   convertToMeters,
   describeAge,
   describeNumber2,

@@ -11,9 +11,8 @@ export const checkBetweenNumbers = (a, b, c) => a < b && b < c;
 export const checkOddThreeDigitNumber = (num) => num % 2 !== 0 && num >= 100;
 
 export const checkUniqueDigits = (num) => {
-    const result = []
-    const strNum = num.toString()
-    return num >= 100 && num < 1000 ? 
+  const st = Math.abs(num).toString();
+  return st.length === 3 ? (st[0] !== st[1]) && (st[0] !== st[2]) && (st[1] !== st[2]) : false;
 };
 
 export const isSecondQuadrant = (x, y) => x < 0 && y > 0;
