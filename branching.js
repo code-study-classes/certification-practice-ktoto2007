@@ -75,3 +75,39 @@ export const convertToMeters = (unitNumber, num) => {
     default: return null;
   }
 };
+
+export const describeAge = (num) => {
+  const tens = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят'];
+  const ones = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'];
+  let result = ''
+  switch (num.toString()[0]) {
+    case '2': result += `${tens[0]}`
+    case '3': result += `${tens[1]}`
+    case '4': result += `${tens[2]}`
+    case '5': result += `${tens[3]}`
+    case '6': result += `${tens[4]}`
+  }
+  switch (num.toString()[1]) {
+    case '1': result += ` ${ones[0]}`
+    case '2': result += ` ${ones[1]}`
+    case '3': result += ` ${ones[2]}`
+    case '4': result += ` ${ones[3]}`
+    case '5': result += ` ${ones[4]}`
+    case '6': result += ` ${ones[5]}`
+    case '7': result += ` ${ones[6]}`
+    case '8': result += ` ${ones[7]}`
+    case '9': result += ` ${ones[8]}`
+  }
+  switch (num.toString()[1]) {
+    case '1': result += 'год'
+    case '2': result += 'года'
+    case '3': result += 'года'
+    case '4': result += 'года'
+    case '5': result += 'лет'
+    case '6': result += 'лет'
+    case '7': result += 'лет'
+    case '8': result += 'лет'
+    case '9': result += 'лет'
+  }
+  return result
+};
